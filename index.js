@@ -170,12 +170,12 @@ function resultForPackage (configuration, tree) {
       if (
         ignore.prefix &&
         typeof ignore.prefix === 'string' &&
-        startsWith(result.name, ignore.prefix)
+        startsWith(result.name ?? '', ignore.prefix)
       ) return true
       if (
         ignore.scope &&
         typeof ignore.scope === 'string' &&
-        startsWith(result.name, '@' + ignore.scope + '/')
+        startsWith(result.name ?? '', '@' + ignore.scope + '/')
       ) return true
       if (
         ignore.author &&
