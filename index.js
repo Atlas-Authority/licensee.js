@@ -167,16 +167,15 @@ function resultForPackage (configuration, tree) {
   if (ignore && Array.isArray(ignore)) {
     var ignored = ignore.some(function (ignore) {
       if (typeof ignore !== 'object') return false
-      if (!result.name) return true
       if (
         ignore.prefix &&
         typeof ignore.prefix === 'string' &&
-        startsWith(result.name ?? '', ignore.prefix)
+        startsWith(result.name, ignore.prefix)
       ) return true
       if (
         ignore.scope &&
         typeof ignore.scope === 'string' &&
-        startsWith(result.name ?? '', '@' + ignore.scope + '/')
+        startsWith(result.name, '@' + ignore.scope + '/')
       ) return true
       if (
         ignore.author &&
