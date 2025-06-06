@@ -182,11 +182,17 @@ function resultForPackage (configuration, tree) {
         typeof ignore.author === 'string' &&
         personMatches(result.author, ignore.author)
       ) return true
-      if (
-        ignore.path &&
-        typeof ignore.path === 'string' &&
-        result.path.includes(ignore.path)
-      ) return true
+      if (ignore.path) {
+        if (typeof ignore.path === 'string' &&
+          result.path.includes(ignore.path)
+          ) return true
+
+        if (ignore.path instanceof Array && (
+          ignore.path.some(function (path) {
+            return result.path.includes(path)
+          }))
+        ) return true
+      }
       return false
     })
     if (ignored) {
@@ -237,6 +243,9 @@ function resultForPackage (configuration, tree) {
 }
 
 function startsWith (string, prefix) {
+  if (!string) {
+    return false
+  }
   return string.toLowerCase().indexOf(prefix.toLowerCase()) === 0
 }
 
