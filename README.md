@@ -2,6 +2,13 @@
 
 Check npm package dependency license metadata against rules.
 
+## Fork differences
+
+- supports monorepo - fixed configuration issue, so you can loop over many package.json using JavaScript Module
+- added ignoring by path - because some bad packages do not have names
+- more protection against bad packages without names
+- ignore path can be an array of paths
+
 ## Configuration
 
 Licensee accepts two kinds of configuration:
@@ -29,7 +36,8 @@ file at the root of your package, like so:
   "ignore": [
     {"scope": "kemitchell"},
     {"prefix": "commonform-"},
-    {"author": "Kyle E. Mitchell"}
+    {"author": "Kyle E. Mitchell"},
+    {"path": "atlassian/aui"} // or {"path": ["atlassian/aui", "juery-pop"]}
   ]
 }
 ```
