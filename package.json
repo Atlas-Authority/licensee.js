@@ -28,7 +28,6 @@
     "licensee"
   ],
   "devDependencies": {
-    "aud": "^2.0.4",
     "ls-engines": "^0.9.3",
     "rimraf": "^3.0.2",
     "run-parallel": "^1.2.0",
@@ -45,7 +44,7 @@
     "postlint": "ls-engines --current",
     "tests-only": "tap --no-check-coverage tests/unit.test.js tests/**/test.js",
     "test": "npm run tests-only",
-    "posttest": "aud --production"
+    "posttest": "npm audit --production"
   },
   "engines": {
     "node": "^20.20 || ^22.22 || ^24.13 || >= 25.4"
