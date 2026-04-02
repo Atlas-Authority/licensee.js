@@ -44,7 +44,7 @@
     "postlint": "ls-engines --current",
     "tests-only": "tap --no-check-coverage tests/unit.test.js tests/**/test.js",
     "test": "npm run tests-only",
-    "posttest": "npm audit --production"
+    "posttest": "npx npm@\">= 10.2\" audit --production"
   },
   "engines": {
     "node": "^20.20 || ^22.22 || ^24.13 || >= 25.4"
